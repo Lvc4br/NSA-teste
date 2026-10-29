@@ -12,6 +12,19 @@ Front-end demonstrativo de um portal acadêmico, desenvolvido com React e Vite. 
 
 ## Arquitetura
 
+## Arquitetura
+
+```mermaid
+flowchart TD
+    A[index.html] --> B[main.jsx]
+    B --> C[BrowserRouter + AuthContext demo]
+    C --> D[AppRoutes]
+    D --> E[Pages and shared components]
+    C --> F[Mock data]
+    C <--> G[sessionStorage]
+    H[Real API / database] -. not implemented .- D
+```
+
 ```text
 index.html
   └─ src/main.jsx
