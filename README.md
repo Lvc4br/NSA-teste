@@ -8,7 +8,7 @@ Front-end demonstrativo de um portal acadêmico, desenvolvido com React e Vite. 
 - **Dados:** objetos locais em `src/services/mock/mockData.js`.
 - **Sessão:** estado local com `sessionStorage`; não comprova a identidade de ninguém.
 - **Não implementado:** autenticação real, backend acadêmico, banco de dados, integração oficial, persistência de notas/frequência, autorização de servidor ou gestão real de usuários.
-- **Qualidade:** há scripts de desenvolvimento, build e preview; não há scripts npm de testes ou lint configurados no `package.json`.
+- **Qualidade:** scripts de desenvolvimento, build, preview e testes Node nativos. Os testes validam a consistência dos dados simulados e mantêm explícitos os limites de segurança do login demonstrativo; ainda não cobrem fluxos de interface em navegador.
 
 ## Arquitetura
 
@@ -105,7 +105,7 @@ O build usa o caminho-base `/NSA-2.0/`; `vite.config.js` e o roteamento precisam
 
 ## Verificação automatizada
 
-O workflow `.github/workflows/ci.yml` executa `npm ci` e `npm run build` em pushes e pull requests. Isso verifica a compilação, não substitui testes funcionais, acessibilidade ou revisão de segurança. O resultado remoto ainda precisa ser confirmado após a execução do workflow.
+O workflow `.github/workflows/ci.yml` executa `npm ci`, `npm run build` e `npm test` em pushes e pull requests. Os testes são de dados/limites do protótipo, não testes end-to-end; acessibilidade, fluxos de navegação em navegador e revisão de segurança continuam como trabalho futuro.
 
 ## Segurança, implantação e limitações
 
