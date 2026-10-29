@@ -86,6 +86,10 @@ npm run preview
 
 O build usa o caminho-base `/NSA-2.0/`; `vite.config.js` e o roteamento precisam permanecer alinhados caso o local de publicação mude.
 
+## Verificação automatizada
+
+O workflow `.github/workflows/ci.yml` executa `npm ci` e `npm run build` em pushes e pull requests. Isso verifica a compilação, não substitui testes funcionais, acessibilidade ou revisão de segurança. O resultado remoto ainda precisa ser confirmado após a execução do workflow.
+
 ## Segurança, implantação e limitações
 
 - Não inserir dados pessoais ou escolares reais: o projeto não tem controles de acesso reais.
