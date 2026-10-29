@@ -12,8 +12,6 @@ Front-end demonstrativo de um portal acadêmico, desenvolvido com React e Vite. 
 
 ## Arquitetura
 
-## Arquitetura
-
 ```mermaid
 flowchart TD
     A[index.html] --> B[main.jsx]
@@ -24,6 +22,25 @@ flowchart TD
     C <--> G[sessionStorage]
     H[Real API / database] -. not implemented .-> D
 ```
+
+### Modelo de domínio acadêmico (conceitual)
+
+```mermaid
+erDiagram
+    STUDENT ||--o{ ENROLLMENT : has
+    CLASS ||--o{ ENROLLMENT : groups
+    SUBJECT ||--o{ CLASS_SUBJECT : includes
+    CLASS ||--o{ CLASS_SUBJECT : offers
+    STUDENT ||--o{ GRADE : receives
+    SUBJECT ||--o{ GRADE : belongs_to
+    STUDENT ||--o{ ATTENDANCE_RECORD : has
+    CLASS_SUBJECT ||--o{ ATTENDANCE_RECORD : records
+    CLASS_SUBJECT ||--o{ SCHEDULE_SLOT : scheduled_as
+    STUDENT ||--o{ REQUEST : submits
+    STUDENT ||--o{ NOTIFICATION : receives
+```
+
+Este é um **modelo de referência para evolução**, não um esquema de banco implementado. Hoje, notas, frequência, disciplinas, horários e perfil são objetos estáticos em `mockData.js`; as entidades não têm IDs persistidos, relacionamentos de banco, histórico de alterações nem trilha de auditoria. Antes de conectar dados reais, definir chaves, autorização por papel, histórico auditável de mudanças em notas/frequência e política de acesso a documentos/solicitações. O protótipo não deve receber dados reais de alunos.
 
 ```text
 index.html
