@@ -22,7 +22,7 @@ flowchart TD
     D --> E[Pages and shared components]
     C --> F[Mock data]
     C <--> G[sessionStorage]
-    H[Real API / database] -. not implemented .- D
+    H[Real API / database] -. not implemented .-> D
 ```
 
 ```text
